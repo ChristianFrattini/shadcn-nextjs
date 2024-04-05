@@ -3,9 +3,10 @@
 import Container from "./ui/container";
 import Link from "next/link";
 import { Button } from "./ui/button";
-import { Moon, ShoppingCart, Sun } from "lucide-react";
+import { Moon, ShoppingCart, Sun, Menu } from "lucide-react";
 import ProfileButton from "./ui/ProfileButton";
 import { useTheme } from "next-themes";
+import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 
 const Header = () => {
   const { theme, setTheme } = useTheme();
@@ -32,6 +33,22 @@ const Header = () => {
           }
         >
           <div className={"flex items-center"}>
+            <Sheet>
+              <SheetTrigger>
+                <Menu className={"h-6 md:hidden w-6"} />
+              </SheetTrigger>
+              <SheetContent side="left" className={"w-[300px] sm:w-[400[x]"}>
+                {routes.map((route, i) => (
+                  <Link
+                    key={i}
+                    href={route.href}
+                    className={"block px-2 pt-1 text-lg"}
+                  >
+                    {route.label}
+                  </Link>
+                ))}
+              </SheetContent>
+            </Sheet>
             <Link href={"/"} className={"ml-4 lg:ml-0"}>
               <h1 className={"text-xl font-bold"}> STORE NAME</h1>
             </Link>
