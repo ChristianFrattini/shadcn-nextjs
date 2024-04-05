@@ -5,6 +5,6 @@ interface ContainerProps {
 
 const Container: React.FC<ContainerProps> = ({ children }) => {
   //reusable container functional component
-  return <div className={"mx-auto w-full max-w-7xl"}>{children}</div>; //takes the children component and applies styling
+  return <div className={"mx-auto w-full max-w-5xl"}>{children}</div>; //takes the children component and applies styling
 };
 export default Container;
