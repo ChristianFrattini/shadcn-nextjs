@@ -1,25 +1,28 @@
+"use client";
+
 import Container from "./ui/container";
 import Link from "next/link";
 import { Button } from "./ui/button";
 import { Moon, ShoppingCart, Sun } from "lucide-react";
 import ProfileButton from "./ui/ProfileButton";
-
-const routes = [
-  {
-    href: "/",
-    label: "Products",
-  },
-  {
-    href: "/",
-    label: "Categories",
-  },
-  {
-    href: "/",
-    label: "On Sale",
-  },
-];
+import { useTheme } from "next-themes";
 
 const Header = () => {
+  const { theme, setTheme } = useTheme();
+  const routes = [
+    {
+      href: "/",
+      label: "Products",
+    },
+    {
+      href: "/",
+      label: "Categories",
+    },
+    {
+      href: "/",
+      label: "On Sale",
+    },
+  ];
   return (
     <header className={"sm:flex sm:justify-between py-3 px-4 border-b"}>
       <Container>
@@ -42,7 +45,7 @@ const Header = () => {
               <Button asChild variant={"ghost"}>
                 <Link
                   key={i}
-                  href={route}
+                  href={route.href}
                   className={"text-sm font-medium transition-colors"}
                 >
                   {route.label}
@@ -65,6 +68,7 @@ const Header = () => {
               size="icon"
               aria-label="Toggle Theme"
               className={"mr-6"}
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             >
               <Sun
                 className={
