@@ -1,7 +1,8 @@
 import Container from "./ui/container";
 import Link from "next/link";
 import { Button } from "./ui/button";
-import { ShoppingCart } from "lucide-react";
+import { Moon, ShoppingCart, Sun } from "lucide-react";
+import ProfileButton from "./ui/ProfileButton";
 
 const routes = [
   {
@@ -59,6 +60,25 @@ const Header = () => {
               <ShoppingCart className={"h-6 w-6"} />
               <span className={"sr-only"}>Shopping Cart</span>
             </Button>
+            <Button
+              variant={"ghost"}
+              size="icon"
+              aria-label="Toggle Theme"
+              className={"mr-6"}
+            >
+              <Sun
+                className={
+                  "h-6 w-6 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
+                }
+              />
+              <Moon
+                className={
+                  "absolute h-6 w-6 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"
+                }
+              />
+              <span className={"sr-only"}>Toggle Theme</span>
+            </Button>
+            <ProfileButton />
           </div>
         </div>
       </Container>
