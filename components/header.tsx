@@ -1,6 +1,7 @@
 import Container from "./ui/container";
 import Link from "next/link";
 import { Button } from "./ui/button";
+import { ShoppingCart } from "lucide-react";
 
 const routes = [
   {
@@ -32,7 +33,9 @@ const Header = () => {
             </Link>
           </div>
           <nav
-            className={"mx-6 flex items-center space-x-4 lg:space-x-6 md:block"}
+            className={
+              "mx-6 flex items-center space-x-4 lg:space-x-6 hidden md:block"
+            }
           >
             {routes.map((route, i) => (
               <Button asChild variant={"ghost"}>
@@ -46,6 +49,17 @@ const Header = () => {
               </Button>
             ))}
           </nav>
+          <div className={"flex items-center"}>
+            <Button
+              variant={"ghost"}
+              aria-label="Shopping Cart"
+              size="icon"
+              className={"mr-2"}
+            >
+              <ShoppingCart className={"h-6 w-6"} />
+              <span className={"sr-only"}>Shopping Cart</span>
+            </Button>
+          </div>
         </div>
       </Container>
     </header>
